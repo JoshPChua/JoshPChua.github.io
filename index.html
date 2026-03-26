@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joshua Chua — Systems Engineer & AI Automation</title>
+  <meta name="description" content="Systems Engineer & AI Automation Specialist. Building multi-agent workflows that automate YouTube content pipelines end-to-end." />
+  <meta property="og:title" content="Joshua Chua — Systems Engineer & AI Automation" />
+  <meta property="og:description" content="5+ years in IT systems. Now building AI agents that do the work autonomously." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://joshpchua.github.io/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Joshua Chua — AI Automation Portfolio" />
+  <meta name="twitter:description" content="Multi-agent workflows, YouTube automation, Claude AI & OpenAI integrations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0f13;
+      --bg2: #16181f;
+      --border: #2a2d38;
+      --accent: #4f7cff;
+      --accent2: #a78bfa;
+      --text: #e8eaf0;
+      --text2: #8b90a0;
+      --card: #1a1d27;
+      --tag-bg: #1e2235;
+      --tag-text: #7b9cff;
+      --toggle-bg: #2a2d38;
+    }
+    [data-theme="light"] {
+      --bg: #f5f6fa;
+      --bg2: #ffffff;
+      --border: #e0e3ef;
+      --accent: #3a62e8;
+      --accent2: #7c5fc9;
+      --text: #1a1d2e;
+      --text2: #5a5f7a;
+      --card: #ffffff;
+      --tag-bg: #eef1ff;
+      --tag-text: #3a62e8;
+      --toggle-bg: #e0e3ef;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.7; transition: background 0.35s, color 0.35s;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem; background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      transition: background 0.35s, border-color 0.35s;
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .toggle-btn {
+      background: var(--toggle-bg); border: 1px solid var(--border);
+      border-radius: 50px; cursor: pointer; padding: 0.35rem 0.75rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      color: var(--text2); font-size: 0.82rem; font-family: 'DM Sans', sans-serif;
+      font-weight: 500; transition: all 0.2s;
+    }
+    .toggle-btn:hover { color: var(--text); border-color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 7rem 2.5rem 4rem; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 60% at 30% 40%, rgba(79,124,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 720px; width: 100%;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.2rem; border: 1px solid rgba(79,124,255,0.3);
+      padding: 0.28rem 0.9rem; border-radius: 50px; background: rgba(79,124,255,0.06);
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--text); margin-bottom: 1.2rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: 1rem; color: var(--text2); max-width: 460px; margin-bottom: 2rem; font-weight: 300; line-height: 1.7; margin-left: auto; margin-right: auto; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.6rem; border-radius: 8px; font-size: 0.88rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
+    .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 4vw, 2.4rem); color: var(--text); margin-bottom: 0.9rem; line-height: 1.2; }
+    .section-desc { color: var(--text2); font-size: 0.95rem; max-width: 580px; margin-bottom: 2.5rem; font-weight: 300; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-text p { color: var(--text2); font-size: 0.95rem; margin-bottom: 1rem; font-weight: 300; line-height: 1.8; }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .about-stats { display: flex; flex-direction: column; gap: 1.1rem; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.5rem; transition: border-color 0.2s; }
+    .stat-card:hover { border-color: var(--accent); }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 0.2rem; }
+    .stat-label { color: var(--text2); font-size: 0.82rem; font-weight: 500; }
+
+    /* PROJECTS */
+    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 1.4rem; transition: border-color 0.25s, transform 0.25s; }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-inner { padding: 1.8rem 2rem; }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.9rem; }
+    .project-title { font-family: 'DM Serif Display', serif; font-size: 1.28rem; color: var(--text); line-height: 1.2; }
+    .project-badge { background: rgba(79,124,255,0.1); color: var(--accent); font-size: 0.73rem; font-weight: 600; padding: 0.22rem 0.7rem; border-radius: 50px; white-space: nowrap; border: 1px solid rgba(79,124,255,0.25); }
+    .project-desc { color: var(--text2); font-size: 0.93rem; margin-bottom: 1.3rem; line-height: 1.75; font-weight: 300; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .tag { background: var(--tag-bg); color: var(--tag-text); font-size: 0.75rem; font-weight: 600; padding: 0.22rem 0.65rem; border-radius: 6px; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.1rem; }
+    .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem 1.5rem; transition: border-color 0.2s; }
+    .skill-card:hover { border-color: var(--accent2); }
+    .skill-category { font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.7rem; }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.32rem; }
+    .skill-list li { color: var(--text2); font-size: 0.86rem; display: flex; align-items: center; gap: 0.5rem; }
+    .skill-list li::before { content: ''; width: 4px; height: 4px; background: var(--accent2); border-radius: 50%; flex-shrink: 0; }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem; width: 1px; background: var(--border); }
+    .timeline-item { position: relative; padding-bottom: 2.2rem; padding-left: 1.5rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -1.9rem; top: 0.45rem; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .tl-date { font-size: 0.76rem; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .tl-title { font-family: 'DM Serif Display', serif; font-size: 1.08rem; color: var(--text); margin-bottom: 0.12rem; }
+    .tl-company { font-size: 0.83rem; color: var(--text2); margin-bottom: 0.5rem; font-weight: 500; }
+    .tl-desc { font-size: 0.88rem; color: var(--text2); font-weight: 300; line-height: 1.7; }
+
+    /* CONTACT */
+    .contact-box { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2.8rem; text-align: center; }
+    .contact-box h3 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--text); margin-bottom: 0.6rem; }
+    .contact-box p { color: var(--text2); font-size: 0.95rem; margin-bottom: 1.8rem; font-weight: 300; }
+    .contact-links { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+    .contact-link { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--text2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 0.55rem 1.1rem; border-radius: 8px; border: 1px solid var(--border); transition: all 0.2s; }
+    .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; color: var(--text2); font-size: 0.78rem; }
+
+    .fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.22s; } .d3 { animation-delay: 0.34s; }
+
+    /* SCROLL ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* DEMO EMBED + ARCHITECTURE */
+    .demo-embed {
+      margin-top: 1.2rem; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border); background: #0d1117;
+    }
+    .demo-embed video, .demo-embed iframe {
+      width: 100%; display: block; border: none; border-radius: 12px;
+    }
+    .demo-label {
+      font-size: 0.73rem; color: var(--text2); text-align: center;
+      padding: 0.5rem; background: var(--card); border-top: 1px solid var(--border);
+      letter-spacing: 0.06em;
+    }
+    .arch-flow {
+      display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap;
+      margin: 1rem 0 1.3rem; padding: 1rem 1.2rem;
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    }
+    .arch-node {
+      background: var(--tag-bg); color: var(--tag-text); font-size: 0.75rem;
+      font-weight: 600; padding: 0.3rem 0.65rem; border-radius: 6px; white-space: nowrap;
+    }
+    .arch-arrow { color: var(--text2); font-size: 0.7rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Josh<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="toggle-btn" onclick="toggleTheme()" id="themeBtn">
+    <span id="themeIcon">☀️</span>
+    <span id="themeLabel">Light</span>
+  </button>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow fade-in">Manila, Philippines</div>
+      <h1 class="fade-in d1">Systems Engineer &amp; <em>AI Automation</em> Specialist</h1>
+      <p class="hero-sub fade-in d2">Five years keeping systems running. Now building AI agents that do the work autonomously.</p>
+      <div class="hero-cta fade-in d3">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="mailto:Josh.pchua@gmail.com" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="section-title">The short version.</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I've spent the last five years in systems and IT support — service desks, enterprise environments, remote troubleshooting. I'm good at it. But lately, I've been spending my own time figuring out how to <strong>automate the repetitive parts</strong> using AI.</p>
+      <p>That led me to build an agentic workflow system from scratch — no course, no tutorial that covered exactly what I needed. Just a problem I wanted to solve and a willingness to figure it out.</p>
+      <p>I work well in structured environments but I'm most motivated when there's a puzzle to crack. If something can be made faster, smarter, or more automatic — I want to know how.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><div class="stat-num">5+</div><div class="stat-label">Years in IT & Systems Support</div></div>
+      <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">YouTube Channels Automated</div></div>
+      <div class="stat-card"><div class="stat-num">Multi</div><div class="stat-label">AI Agents in One Pipeline</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <div class="section-title">Things I've actually built.</div>
+  <p class="section-desc">Personal projects outside of work hours — mostly solving problems I ran into myself.</p>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <div class="project-header">
+        <div class="project-title">AI Video Agent — Full Agentic Workflow</div>
+        <div class="project-badge">Active</div>
+      </div>
+      <p class="project-desc">A multi-agent AI system that autonomously creates and publishes YouTube Shorts. One command triggers the full pipeline: topic selection → viral script writing → AI image generation → voiceover → video rendering → upload to the correct channel. Claude AI orchestrates the workflow, OpenAI generates visuals and audio, and Creatomate renders the final video — all without manual intervention.</p>
+      <div class="arch-flow">
+        <span class="arch-node">Google Sheets</span><span class="arch-arrow">→</span>
+        <span class="arch-node">Claude AI</span><span class="arch-arrow">→</span>
+        <span class="arch-node">Script + Hooks</span><span class="arch-arrow">→</span>
+        <span class="arch-node">DALL-E 3</span><span class="arch-arrow">→</span>
+        <span class="arch-node">OpenAI TTS</span><span class="arch-arrow">→</span>
+        <span class="arch-node">Creatomate</span><span class="arch-arrow">→</span>
+        <span class="arch-node">YouTube API</span><span class="arch-arrow">→</span>
+        <span class="arch-node">Telegram</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Claude API</span>
+        <span class="tag">OpenAI GPT-4o</span><span class="tag">DALL-E 3</span>
+        <span class="tag">YouTube Data API</span><span class="tag">Creatomate</span>
+        <span class="tag">Multi-Agent AI</span><span class="tag">Agentic Workflow</span>
+      </div>
+      <div class="demo-embed">
+        <video autoplay loop muted playsinline>
+          <source src="demo/agent_demo.mp4" type="video/mp4">
+        </video>
+        <div class="demo-label">▶ Terminal demo — full autonomous pipeline run</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card reveal reveal-delay-1">
+    <div class="project-inner">
+      <div class="project-header">
+        <div class="project-title">Auto Uploader — Multi-Channel YouTube Pipeline</div>
+        <div class="project-badge">Active</div>
+      </div>
+      <p class="project-desc">Standalone upload pipeline for pre-generated videos. Drop files into channel-specific folders and run one command — the system generates AI-powered titles and descriptions, uploads to the correct YouTube channel, and moves completed files to an archive. Supports watch mode for continuous auto-upload.</p>
+      <div class="arch-flow">
+        <span class="arch-node">Video Folders</span><span class="arch-arrow">→</span>
+        <span class="arch-node">Channel Router</span><span class="arch-arrow">→</span>
+        <span class="arch-node">GPT-4o Mini</span><span class="arch-arrow">→</span>
+        <span class="arch-node">YouTube Upload</span><span class="arch-arrow">→</span>
+        <span class="arch-node">Archive + Notify</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">OpenAI GPT-4o</span>
+        <span class="tag">YouTube Data API</span><span class="tag">Telegram API</span>
+        <span class="tag">CLI Tool</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card reveal reveal-delay-2">
+    <div class="project-inner">
+      <div class="project-header">
+        <div class="project-title">Custom PC Builds & Home Lab Setup</div>
+        <div class="project-badge">Personal</div>
+      </div>
+      <p class="project-desc">Assembled custom desktop machines from scratch — component selection, full hardware build, Windows OS setup and tuning. Also handled OS reinstalls and software configuration for personal contacts. Used these as a personal lab for testing automation scripts and AI tools before running anything live.</p>
+      <div class="project-tags">
+        <span class="tag">Hardware Assembly</span><span class="tag">Windows OS</span>
+        <span class="tag">System Config</span><span class="tag">OS Reinstallation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <div class="section-title">What I work with.</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-category">AI & Automation</div>
+      <ul class="skill-list">
+        <li>Multi-agent workflow design</li><li>Python scripting</li>
+        <li>Claude API</li><li>OpenAI GPT-4o / DALL-E 3</li>
+        <li>Prompt engineering</li><li>YouTube Data API</li>
+        <li>Creatomate API</li><li>n8n</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Identity & Access</div>
+      <ul class="skill-list">
+        <li>Active Directory</li><li>Microsoft 365</li>
+        <li>Azure Entra ID (basic)</li><li>Okta Verify</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Remote Support</div>
+      <ul class="skill-list">
+        <li>Windows RDP</li><li>BeyondTrust / Bomgar</li>
+        <li>LogMeIn</li><li>ServiceNow</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Endpoint & Hardware</div>
+      <ul class="skill-list">
+        <li>Windows OS troubleshooting</li><li>PC assembly & setup</li>
+        <li>OS reinstallation</li><li>MDM basics (AirWatch)</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Networking</div>
+      <ul class="skill-list">
+        <li>TCP/IP fundamentals</li><li>VPN & MFA support</li>
+        <li>ping, ipconfig, flushdns</li><li>Basic VDI health checks</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Certifications</div>
+      <ul class="skill-list">
+        <li>Lean Six Sigma White Belt</li>
+        <li>Lean Six Sigma Yellow Belt</li>
+        <li>BS Information Technology</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <div class="section-title">Where I've been.</div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-date">2025 – Present</div>
+      <div class="tl-title">AI Automation & Agentic Workflow Project</div>
+      <div class="tl-company">Independent — Manila</div>
+      <div class="tl-desc">Designed and deployed a Python-based multi-agent automation system for YouTube content publishing. Started with n8n, transitioned to a custom agentic workflow. Integrated Claude and other AI APIs with folder-based channel routing across two niches.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Jul 2024 – Sep 2025</div>
+      <div class="tl-title">IT Support Engineer</div>
+      <div class="tl-company">Tata Consultancy Services — BGC, Taguig</div>
+      <div class="tl-desc">IT support for a global enterprise user base. Active Directory, Microsoft Entra ID, M365 and remote diagnostics via RDP and BeyondTrust, ServiceNow ticket management, and VDI health checks.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Feb 2023 – Jul 2024</div>
+      <div class="tl-title">IT Support Engineer</div>
+      <div class="tl-company">Atos — Pasay City</div>
+      <div class="tl-desc">Remote support including VPN/MFA troubleshooting, AirWatch MDM tasks, and POS system support via ServiceNow.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">2021 – 2023</div>
+      <div class="tl-title">Personal IT Projects</div>
+      <div class="tl-company">Independent — Manila</div>
+      <div class="tl-desc">Built custom desktop PCs from component selection through full Windows setup. Handled OS reinstalls and software configuration for personal contacts — mostly because people kept asking.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Sep 2019 – Sep 2021</div>
+      <div class="tl-title">Technical Support Representative</div>
+      <div class="tl-company">Conduent — Pasay City</div>
+      <div class="tl-desc">Multi-session chat support for technical and billing issues. Mentored new hires and contributed to quality improvement initiatives.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">2014 – 2015</div>
+      <div class="tl-title">Technical Support Representative</div>
+      <div class="tl-company">Convergys & Sitel — Metro Manila</div>
+      <div class="tl-desc">Tier 1 support for enterprise workstations and Toshiba laptops. Hardware and software troubleshooting, escalations, and documentation.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contact">
+  <div class="contact-box">
+    <h3>Let's connect.</h3>
+    <p>Open to IT and systems roles, automation projects, or just a good conversation about AI tools.</p>
+    <div class="contact-links">
+      <a href="mailto:Josh.pchua@gmail.com" class="contact-link">✉ Josh.pchua@gmail.com</a>
+      <a href="https://linkedin.com/in/joshpc" target="_blank" class="contact-link">in LinkedIn</a>
+      <a href="https://github.com/JoshPChua" target="_blank" class="contact-link">⌥ GitHub</a>
+      <a href="tel:+639682776855" class="contact-link">📱 +63 968 277 6855</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Joshua Chua — Built with purpose, not a template.</footer>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('themeIcon').textContent = isDark ? '🌙' : '☀️';
+    document.getElementById('themeLabel').textContent = isDark ? 'Dark' : 'Light';
+  }
+
+  // Scroll-triggered reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Also reveal skill cards and stat cards on scroll
+  document.querySelectorAll('.skill-card, .stat-card, .timeline-item, .contact-box').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
