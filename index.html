@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Joshua Chua — Systems Engineer & Full-Stack Developer</title>
-  <meta name="description" content="Systems Engineer, Full-Stack Developer & AI Automation Architect. Building production systems and multi-agent workflows from Manila, Philippines." />
-  <meta property="og:title" content="Joshua Chua — Systems Engineer & Full-Stack Developer" />
-  <meta property="og:description" content="5+ years in IT systems. Building production apps and AI agents that do the work autonomously." />
+  <title>Joshua Chua — Systems Engineer & AI-Assisted Product Builder</title>
+  <meta name="description" content="Systems Engineer & AI-Assisted Product Builder. Designing SaaS products, building multi-agent AI workflows, and shipping production systems from Manila, Philippines." />
+  <meta property="og:title" content="Joshua Chua — Systems Engineer & AI-Assisted Product Builder" />
+  <meta property="og:description" content="5+ years in IT systems. Now designing SaaS products and building AI agents that do the work autonomously." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://joshpchua.github.io/" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Joshua Chua — Portfolio" />
-  <meta name="twitter:description" content="Full-stack systems, AI automation, production clinic management platforms." />
+  <meta name="twitter:description" content="SaaS product builder, AI automation, production clinic management platforms." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -413,14 +413,15 @@
     }
     .bento-featured { grid-column: 1 / -1; }
     .bento-featured .bento-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      display: flex; flex-direction: column;
     }
     .bento-featured .bento-img-wrap {
       position: relative; overflow: hidden;
-      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      max-height: 340px;
     }
     .bento-featured .bento-img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover; object-position: top left;
       transition: transform 0.6s ease;
     }
     .bento-featured:hover .bento-img { transform: scale(1.03); }
@@ -493,6 +494,21 @@
     }
     .demo-embed video {
       width: 100%; display: block; border: none;
+    }
+    /* N8N SCREENSHOT */
+    .n8n-screenshot {
+      margin-top: 1rem; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border-subtle); background: #0d1117;
+    }
+    .n8n-screenshot img {
+      width: 100%; display: block; border-radius: 12px 12px 0 0;
+    }
+    .n8n-screenshot-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; color: var(--text3); text-align: center;
+      padding: 0.5rem; background: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+      letter-spacing: 0.05em;
     }
     .demo-label {
       font-family: 'JetBrains Mono', monospace;
@@ -643,8 +659,8 @@
        RESPONSIVE
     ═══════════════════════════════════════════ */
     @media (max-width: 900px) {
-      .bento-featured .bento-inner { grid-template-columns: 1fr; }
-      .bento-featured .bento-img-wrap { max-height: 220px; border-right: none; border-bottom: 1px solid var(--border-subtle); }
+      .bento-featured .bento-inner { flex-direction: column; }
+      .bento-featured .bento-img-wrap { max-height: 200px; }
     }
     @media (max-width: 768px) {
       nav { padding: 0.75rem 1.2rem; }
@@ -751,7 +767,7 @@
     <div class="hero-roles">
       <span id="typingText"></span><span class="typing-cursor">|</span>
     </div>
-    <p class="hero-sub">Five years keeping systems running. Now building production apps and AI agents that do the work autonomously.</p>
+    <p class="hero-sub">Five years keeping systems running. Now designing SaaS products and building AI agents that do the work autonomously.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary magnetic" id="btn-projects">View Projects</a>
       <a href="mailto:Josh.pchua@gmail.com" class="btn btn-ghost magnetic" id="btn-contact">Get in Touch</a>
@@ -768,8 +784,8 @@
   <div class="about-grid">
     <div class="about-text reveal">
       <p>I've spent the last five years in systems and IT support — service desks, enterprise environments, remote troubleshooting. I'm good at it. But I've always been drawn to <strong>building things</strong>, not just fixing them.</p>
-      <p>That itch led me to two very different projects: a <em>multi-agent AI system</em> that autonomously creates and publishes YouTube content, and a <em>production POS platform</em> for a medical aesthetics group — both built from scratch.</p>
-      <p>I work well in structured environments but I'm most motivated when there's a puzzle to crack. Whether it's automating a content pipeline or architecting a multi-branch database, if something can be made better — I want to know how.</p>
+      <p>That itch led me to two very different paths: designing and launching a <em>cloud-based POS and clinic management SaaS</em> for a medical aesthetics group, and architecting <em>multi-agent AI workflows</em> that autonomously create and publish YouTube content — leveraging AI-assisted development to ship production software.</p>
+      <p>I work well in structured environments but I'm most motivated when there's a product to ship. Whether it's defining requirements for a multi-branch system or automating an entire content pipeline, if something can be made better — I want to own it.</p>
     </div>
     <div class="about-stats">
       <div class="stat-card reveal">
@@ -783,7 +799,7 @@
         <div class="stat-top">
           <div class="stat-num" data-count="1">0</div>
         </div>
-        <div class="stat-label">Production System Deployed</div>
+        <div class="stat-label">SaaS Product Launched</div>
       </div>
       <div class="stat-card reveal">
         <div class="stat-top">
@@ -820,10 +836,10 @@
         </div>
         <div class="bento-content">
           <div class="bento-header">
-            <div class="bento-title">FitWhite Aesthetics — POS & Clinic Management</div>
+            <div class="bento-title">FitWhite Clinic POS System — Founder & Product Lead</div>
             <span class="badge badge-production">Production</span>
           </div>
-          <p class="bento-desc">A comprehensive cloud-based Point-of-Sale and clinic management platform built for a Philippine aesthetic medical group. Multi-item checkout with split payments, patient session tracking, automated inventory with BOM, doctor commissions, and full audit trail — all with role-based access across multiple branches.</p>
+          <p class="bento-desc">Designed and launched a cloud-based POS and clinic management SaaS for a multi-branch aesthetic clinic (8 locations, Philippines). Defined product requirements, business logic, data architecture, and commercial pricing model. Leveraged AI-assisted development tools to build production-grade software. Features sales processing, package/installment management, inventory tracking, customer CRM, financial reporting, and role-based access.</p>
           <div class="feature-pills">
             <span class="feature-pill">🛒 POS</span>
             <span class="feature-pill">📦 Inventory</span>
@@ -890,24 +906,21 @@
     <div class="bento-card bento-standard tilt-card reveal">
       <div class="bento-content">
         <div class="bento-header">
-          <div class="bento-title">n8n AI Video Pipeline</div>
+          <div class="bento-title">n8n AI Video Pipeline — No-Code Automation</div>
           <span class="badge badge-active">Active</span>
         </div>
-        <p class="bento-desc">The same YouTube Shorts automation rebuilt visually in n8n. Scheduled triggers pull topics, OpenAI generates scripts, Creatomate renders video, and the system routes uploads to the correct channel — all through connected nodes.</p>
-        <div class="arch-flow">
-          <span class="arch-node">Trigger</span><span class="arch-arrow">→</span>
-          <span class="arch-node">Sheets</span><span class="arch-arrow">→</span>
-          <span class="arch-node">OpenAI</span><span class="arch-arrow">→</span>
-          <span class="arch-node">Voice</span><span class="arch-arrow">→</span>
-          <span class="arch-node">Render</span><span class="arch-arrow">→</span>
-          <span class="arch-node">Upload</span>
-        </div>
+        <p class="bento-desc">Multi-YouTube Channel Shorts automation pipeline built on n8n — a no-code workflow automation platform. Scheduled triggers pull topics from Google Sheets, OpenAI generates scripts and keywords, audio is generated and uploaded, Creatomate renders the final video, and the system routes uploads to the correct YouTube channel.</p>
         <div class="tech-tags">
           <span class="tag tag-tool">n8n</span>
-          <span class="tag tag-ai">OpenAI</span>
-          <span class="tag tag-tool">YouTube API</span>
+          <span class="tag tag-ai">OpenAI GPT-4o</span>
+          <span class="tag tag-tool">YouTube Data API</span>
           <span class="tag tag-tool">Creatomate</span>
+          <span class="tag tag-tool">Google Sheets</span>
           <span class="tag tag-tool">No-Code</span>
+        </div>
+        <div class="n8n-screenshot">
+          <img src="n8n_screenshot.png" alt="n8n AI Video Pipeline workflow — full node graph showing the automated YouTube Shorts pipeline" loading="lazy" />
+          <div class="n8n-screenshot-label">n8n workflow — full automation pipeline view</div>
         </div>
       </div>
     </div>
@@ -958,19 +971,20 @@
   <div class="section-title reveal">What I work with.</div>
   <div class="skills-grid">
     <div class="skill-card reveal">
-      <div class="skill-category">Full-Stack Development</div>
+      <div class="skill-category">Product & SaaS</div>
       <ul class="skill-list">
-        <li>Next.js / React</li><li>TypeScript</li>
-        <li>Supabase / PostgreSQL</li><li>TailwindCSS</li>
-        <li>REST API design</li><li>Vercel deployment</li>
+        <li>Product requirements & architecture</li><li>SaaS pricing & business logic</li>
+        <li>AI-assisted development (Claude, Cursor)</li><li>Next.js / Supabase / Vercel stack</li>
+        <li>Data modeling & schema design</li><li>Client onboarding & support</li>
       </ul>
     </div>
     <div class="skill-card reveal">
       <div class="skill-category">AI & Automation</div>
       <ul class="skill-list">
-        <li>Multi-agent workflow design</li><li>Python scripting</li>
-        <li>Claude API / OpenAI GPT-4o</li><li>DALL-E 3 / TTS</li>
-        <li>Prompt engineering</li><li>n8n</li>
+        <li>Multi-agent workflow design</li><li>Prompt engineering</li>
+        <li>Claude / OpenAI GPT-4o</li><li>DALL-E 3 / TTS</li>
+        <li>Python (AI-assisted)</li><li>n8n</li>
+        <li>YouTube Data API</li><li>Creatomate API</li>
       </ul>
     </div>
     <div class="skill-card reveal">
@@ -1016,18 +1030,18 @@
 
     <div class="timeline-item reveal">
       <div class="timeline-dot"></div>
-      <div class="tl-date">2025 – Present</div>
-      <div class="tl-title">Full-Stack Developer — FitWhite Aesthetics System</div>
+      <div class="tl-date">May 2026 – Present</div>
+      <div class="tl-title">Founder & Product Lead — FitWhite Clinic POS System</div>
       <div class="tl-company">Independent — Manila</div>
-      <div class="tl-desc">Designed, developed, and deployed a production-grade POS and clinic management platform for a multi-branch Philippine aesthetic medical group. Built the complete stack: 20+ database tables, 18 dashboard modules, role-based access control, and complex business logic including split payments, session tracking, and automated inventory management.</div>
+      <div class="tl-desc">Designed and launched a cloud-based POS and clinic management SaaS for a multi-branch aesthetic clinic (8 locations, Philippines). Defined product requirements, business logic, data architecture, and commercial pricing model. System features: sales processing, package/installment management, inventory tracking, customer CRM, financial reporting, role-based access. Leveraged AI-assisted development tools to build production-grade software. Managing deployment (Supabase + Vercel), client onboarding, and support.</div>
     </div>
 
     <div class="timeline-item reveal">
       <div class="timeline-dot"></div>
       <div class="tl-date">2025 – Present</div>
-      <div class="tl-title">AI Automation & Agentic Workflow Project</div>
+      <div class="tl-title">AI Automation & Agentic Workflow Architect</div>
       <div class="tl-company">Independent — Manila</div>
-      <div class="tl-desc">Designed and deployed a Python-based multi-agent automation system for YouTube content publishing. Started with n8n, transitioned to a custom agentic workflow. Integrated Claude and other AI APIs with folder-based channel routing across two niches.</div>
+      <div class="tl-desc">Architected and deployed end-to-end content pipelines. Built foundational no-code workflows in n8n, then scaled to a custom multi-agent system. Leveraged Claude AI for logic orchestration and implemented Python scripts to handle complex YouTube Data API integrations, media rendering, and autonomous publishing across multiple channels.</div>
     </div>
 
     <div class="timeline-item reveal">
@@ -1257,9 +1271,9 @@
   // ── TYPING ANIMATION ──
   const roles = [
     'Systems Engineer',
-    'Full-Stack Developer',
-    'AI Automation Architect',
-    'Problem Solver'
+    'AI-Assisted Product Builder',
+    'Founder & Product Lead',
+    'AI Automation Architect'
   ];
   const typingEl = document.getElementById('typingText');
   let roleIdx = 0, charIdx = 0, isDeleting = false;
