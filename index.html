@@ -100,13 +100,23 @@ img{max-width:100%;display:block}
    5. LAYOUT
 ═══════════════════════════════════════════════════ */
 .main{margin-left:var(--sidebar);min-height:100vh;position:relative}
+.section-inner{max-width:1080px;margin:0 auto}
 
 /* ═══════════════════════════════════════════════════
    6. HERO
 ═══════════════════════════════════════════════════ */
-.hero{min-height:100vh;display:flex;align-items:center;padding:4rem 3.5rem;position:relative;overflow:hidden}
+.hero{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:3rem 3.5rem;position:relative;overflow:hidden}
 #particleCanvas{position:absolute;inset:0;z-index:0;pointer-events:none}
-.hero-content{position:relative;z-index:1;max-width:640px}
+.hero-content{position:relative;z-index:1;max-width:720px;text-align:center}
+.hero-badge{margin-left:auto;margin-right:auto}
+.hero-line{margin-left:auto;margin-right:auto}
+.hero-desc{margin-left:auto;margin-right:auto}
+.hero-cta{justify-content:center}
+.hero-stats{display:flex;gap:1.5rem;justify-content:center;margin-top:2rem;opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) .9s forwards}
+.hero-stat{text-align:center}
+.hero-stat .stat-num{font-family:'Geist',sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent);line-height:1}
+.hero-stat .stat-suffix{font-family:'Geist',sans-serif;font-size:1rem;font-weight:700;color:var(--accent)}
+.hero-stat .stat-label{color:var(--text3);font-size:0.7rem;font-weight:500;margin-top:0.15rem}
 .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Geist Mono',monospace;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;border:1px solid rgba(96,165,250,0.15);padding:0.3rem 0.9rem;border-radius:50px;background:rgba(96,165,250,0.04);opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) .15s forwards}
 .hero-badge .dot{width:6px;height:6px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px rgba(34,197,94,0.6);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
@@ -134,61 +144,32 @@ img{max-width:100%;display:block}
 /* ═══════════════════════════════════════════════════
    8. SECTIONS
 ═══════════════════════════════════════════════════ */
-.section{padding:5rem 3.5rem;max-width:900px}
+.section{padding:3.5rem 3.5rem;max-width:1080px;margin:0 auto}
 .section-label{font-family:'Geist Mono',monospace;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem}
 .section-label::before{content:'';width:20px;height:1px;background:var(--accent)}
 .section-title{font-family:'Geist',sans-serif;font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;letter-spacing:-0.035em;line-height:1.15;margin-bottom:0.5rem}
-.section-desc{color:var(--text2);font-size:0.9rem;max-width:480px;font-weight:300;line-height:1.8;margin-bottom:3rem}
+.section-desc{color:var(--text2);font-size:0.9rem;max-width:600px;font-weight:300;line-height:1.8;margin-bottom:2rem}
 .divider{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
 
 /* ═══════════════════════════════════════════════════
-   9. ABOUT & STATS
+   9. PROJECT CARDS (full-width stacked)
 ═══════════════════════════════════════════════════ */
-.about-grid{display:grid;grid-template-columns:1.3fr 0.7fr;gap:3rem;align-items:start}
-.about-text p{color:var(--text2);font-size:0.9rem;margin-bottom:1rem;font-weight:300;line-height:1.85}
-.about-text strong{color:var(--text);font-weight:600}
-.about-text em{font-style:normal;color:var(--accent);background:var(--tag-bg);padding:0 0.35em;border-radius:4px;font-size:0.88em}
-.stats{display:flex;flex-direction:column;gap:0.75rem}
-.stat{background:var(--glass);border:1px solid var(--glass-b);border-top:2px solid var(--accent);border-radius:10px;padding:1.1rem 1.3rem;transition:transform .3s,box-shadow .3s}
-.stat:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
-.stat-row{display:flex;align-items:baseline;gap:0.1rem}
-.stat-num{font-family:'Geist',sans-serif;font-size:2rem;font-weight:800;color:var(--accent);line-height:1}
-.stat-suffix{font-family:'Geist',sans-serif;font-size:1.2rem;font-weight:700;color:var(--accent)}
-.stat-label{color:var(--text2);font-size:0.78rem;font-weight:500;margin-top:0.2rem}
-
-/* ═══════════════════════════════════════════════════
-   10. CARD DECK
-═══════════════════════════════════════════════════ */
-.deck-container{position:relative;height:480px;margin:0 -1rem;overflow:visible}
-.deck-card{position:absolute;top:0;left:50%;width:380px;margin-left:-190px;background:var(--glass);border:1px solid var(--glass-b);border-top:2px solid var(--accent);border-radius:14px;overflow:hidden;transform-origin:center bottom;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .35s,opacity .4s;will-change:transform}
-.deck-card.is-center{transform:translateY(0) rotate(0) scale(1);z-index:30;box-shadow:0 24px 50px -20px rgba(0,0,0,0.5)}
-.deck-card.is-left{transform:translateX(-45%) translateY(16px) rotate(-12deg) scale(.88);z-index:10;box-shadow:0 12px 28px -16px rgba(0,0,0,0.4);cursor:pointer}
-.deck-card.is-right{transform:translateX(45%) translateY(16px) rotate(12deg) scale(.88);z-index:20;box-shadow:0 12px 28px -16px rgba(0,0,0,0.4);cursor:pointer}
-.deck-card.is-left::after,.deck-card.is-right::after{content:'';position:absolute;inset:0;border-radius:inherit;background:rgba(5,5,8,0.35);transition:background .3s;pointer-events:none}
-[data-theme="light"] .deck-card.is-left::after,[data-theme="light"] .deck-card.is-right::after{background:rgba(250,250,250,0.35)}
-.deck-card.is-left:hover::after,.deck-card.is-right:hover::after{background:transparent}
-.deck-card.is-center:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 32px 60px -20px rgba(0,0,0,0.55)}
-.deck-card.is-left:hover{transform:translateX(-48%) translateY(4px) rotate(-9deg) scale(.91);z-index:25}
-.deck-card.is-right:hover{transform:translateX(48%) translateY(4px) rotate(9deg) scale(.91);z-index:25}
-.deck-card:not(.is-center) .card-links{pointer-events:none}
-.card-img{width:100%;height:180px;object-fit:cover;object-position:top left;border-bottom:1px solid var(--border-s)}
-.card-body{padding:1.3rem 1.5rem}
-.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:0.5rem;margin-bottom:0.5rem}
-.card-title{font-family:'Geist',sans-serif;font-size:1.05rem;font-weight:700;line-height:1.25;letter-spacing:-0.015em}
-.badge{font-family:'Geist Mono',monospace;font-size:0.62rem;font-weight:600;padding:0.18rem 0.55rem;border-radius:50px;white-space:nowrap;flex-shrink:0}
-.badge-prod{background:rgba(34,197,94,0.1);color:#4ade80;border:1px solid rgba(34,197,94,0.2)}
-.badge-active{background:var(--tag-bg);color:var(--accent);border:1px solid rgba(96,165,250,0.2)}
-.card-desc{color:var(--text2);font-size:0.8rem;font-weight:300;line-height:1.7;margin-bottom:0.8rem}
-.card-tags{display:flex;flex-wrap:wrap;gap:0.3rem}
-.tag{font-family:'Geist Mono',monospace;font-size:0.65rem;font-weight:500;padding:0.18rem 0.5rem;border-radius:4px;background:var(--tag-bg);color:var(--tag-c)}
-.deck-nav{display:flex;justify-content:center;gap:0.5rem;margin-top:1rem}
-.deck-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:background .3s,transform .3s}
-.deck-dot.active{background:var(--accent);transform:scale(1.2)}
-.more-projects{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:2.5rem}
-.mini-card{background:var(--glass);border:1px solid var(--glass-b);border-top:2px solid var(--accent);border-radius:10px;padding:1.1rem 1.3rem;transition:transform .3s,box-shadow .3s}
+.project-list{display:flex;flex-direction:column;gap:1.2rem}
+.project-card{display:grid;grid-template-columns:1fr 1fr;background:var(--glass);border:1px solid var(--glass-b);border-left:3px solid var(--accent);border-radius:14px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.35)}
+.card-img-wrap{position:relative;overflow:hidden;min-height:260px}
+.card-img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .5s}
+.project-card:hover .card-img{transform:scale(1.03)}
+.card-body{padding:1.8rem 2rem;display:flex;flex-direction:column;justify-content:center}
+.card-title{font-family:'Geist',sans-serif;font-size:1.25rem;font-weight:700;line-height:1.25;letter-spacing:-0.02em;margin-bottom:0.6rem}
+.card-desc{color:var(--text2);font-size:0.88rem;font-weight:300;line-height:1.8;margin-bottom:1rem}
+.card-tags{display:flex;flex-wrap:wrap;gap:0.35rem}
+.tag{font-family:'Geist Mono',monospace;font-size:0.68rem;font-weight:500;padding:0.22rem 0.6rem;border-radius:5px;background:var(--tag-bg);color:var(--tag-c)}
+.more-projects{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1.5rem}
+.mini-card{background:var(--glass);border:1px solid var(--glass-b);border-left:3px solid var(--accent);border-radius:10px;padding:1.2rem 1.4rem;transition:transform .3s,box-shadow .3s}
 .mini-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.25)}
-.mini-card .card-title{font-size:0.92rem;margin-bottom:0.3rem}
-.mini-card .card-desc{font-size:0.78rem;margin-bottom:0.6rem}
+.mini-card .card-title{font-size:0.95rem;margin-bottom:0.4rem}
+.mini-card .card-desc{font-size:0.82rem;margin-bottom:0.7rem}
 
 /* ═══════════════════════════════════════════════════
    11. SKILLS
@@ -254,30 +235,32 @@ footer span{color:var(--accent)}
    15. RESPONSIVE
 ═══════════════════════════════════════════════════ */
 @media(max-width:900px){
-  .about-grid{grid-template-columns:1fr;gap:2rem}
-  .deck-card{width:320px;margin-left:-160px}
+  .project-card{grid-template-columns:1fr}
+  .card-img-wrap{min-height:200px}
   .more-projects{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:1rem}
 }
 @media(max-width:768px){
   body{cursor:auto}
   .sidebar{display:none}
   .mobile-header{display:flex}
   .main{margin-left:0}
-  .hero{padding:3rem 1.5rem;min-height:auto}
-  .section{padding:3.5rem 1.5rem}
+  .hero{padding:2.5rem 1.5rem;min-height:auto}
+  .section{padding:2.5rem 1.5rem}
   .hero h1{font-size:clamp(1.8rem,8vw,2.4rem)}
-  .deck-container{height:420px}
-  .deck-card{width:280px;margin-left:-140px}
-  .card-img{height:140px}
+  .project-card{grid-template-columns:1fr}
+  .card-img-wrap{min-height:180px}
+  .card-body{padding:1.2rem 1.3rem}
   .skills-grid{grid-template-columns:1fr}
   .contact-card{padding:2rem 1.2rem}
   .contact-links{flex-direction:column;align-items:center}
   footer{padding:1.2rem 1.5rem}
   .cursor-dot,.cursor-ring{display:none!important}
-  .btn,.contact-link,.theme-opt,.mobile-menu-btn,.deck-card{cursor:pointer}
+  .btn,.contact-link,.theme-opt,.mobile-menu-btn{cursor:pointer}
   .edu-card{flex-direction:column;text-align:center;gap:0.8rem}
+  .hero-stats{gap:0.8rem}
 }
-@media(max-width:380px){.hero h1{font-size:1.6rem}.deck-card{width:250px;margin-left:-125px}.card-img{height:120px}}
+@media(max-width:380px){.hero h1{font-size:1.6rem}}
 </style>
 </head>
 <body>
@@ -332,29 +315,16 @@ footer span{color:var(--accent)}
     <h1><span class="hero-name">Joshua Chua</span></h1>
     <div class="hero-line"></div>
     <div class="hero-roles"><span id="typingText"></span><span class="typing-cursor">|</span></div>
-    <p class="hero-desc">Systems Engineer with 5+ years across enterprise service desk, identity & access management, and endpoint operations — complemented by a self-directed track record in applied AI automation and SaaS product development.</p>
+    <p class="hero-desc">Systems Engineer with 5+ years in enterprise IT — building AI automation and SaaS products on the side.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="mailto:Josh.pchua@gmail.com" class="btn btn-ghost">Get in Touch</a>
     </div>
-  </div>
-</section>
-<hr class="divider">
-
-<section class="section" id="about">
-  <div class="section-label reveal">About</div>
-  <div class="section-title reveal">The short version.</div>
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <p>I've spent the last five years in <strong>enterprise IT support</strong> — service desks, identity & access management, endpoint operations, and remote diagnostics for global user bases. Active Directory, Microsoft 365, Azure, Citrix, VMware, SCCM — I know the toolkit inside out.</p>
-      <p>But I've always been drawn to building things, not just fixing them. That led me to design and launch a <em>cloud-based POS and clinic management SaaS</em> for a multi-branch aesthetic clinic, and to architect a <em>multi-agent Python automation system</em> integrating AI APIs — both self-directed projects shipped alongside full-time support work.</p>
-      <p>I work well in structured environments but I'm most motivated when there's a product to ship. Whether it's managing Active Directory at scale or automating an entire content pipeline — if something can be made better, I want to own it.</p>
-    </div>
-    <div class="stats reveal">
-      <div class="stat"><div class="stat-row"><div class="stat-num" data-count="5">0</div><div class="stat-suffix">+</div></div><div class="stat-label">Years in IT & Systems</div></div>
-      <div class="stat"><div class="stat-row"><div class="stat-num" data-count="1">0</div></div><div class="stat-label">SaaS Product Launched</div></div>
-      <div class="stat"><div class="stat-row"><div class="stat-num" data-count="2">0</div></div><div class="stat-label">YouTube Channels Automated</div></div>
-      <div class="stat"><div class="stat-row"><div class="stat-num" data-count="20">0</div><div class="stat-suffix">+</div></div><div class="stat-label">Database Tables Designed</div></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="stat-row" style="justify-content:center"><div class="stat-num" data-count="5">0</div><div class="stat-suffix">+</div></div><div class="stat-label">Years IT</div></div>
+      <div class="hero-stat"><div class="stat-row" style="justify-content:center"><div class="stat-num" data-count="1">0</div></div><div class="stat-label">SaaS Shipped</div></div>
+      <div class="hero-stat"><div class="stat-row" style="justify-content:center"><div class="stat-num" data-count="3">0</div></div><div class="stat-label">AI Pipelines</div></div>
+      <div class="hero-stat"><div class="stat-row" style="justify-content:center"><div class="stat-num" data-count="20">0</div><div class="stat-suffix">+</div></div><div class="stat-label">DB Tables</div></div>
     </div>
   </div>
 </section>
@@ -364,16 +334,43 @@ footer span{color:var(--accent)}
   <div class="section-label reveal">Projects</div>
   <div class="section-title reveal">Things I've built.</div>
   <p class="section-desc reveal">Real projects, real problems — built outside of work hours.</p>
-  <div class="deck-container reveal" id="deckContainer">
-    <div class="deck-card" id="card-0"><img src="assets/clinic-pos-preview.png" alt="Clinic POS Dashboard" class="card-img" loading="lazy"><div class="card-body"><div class="card-head"><div class="card-title">Clinic POS Inventory System</div><span class="badge badge-prod">Production</span></div><p class="card-desc">Cloud-based POS and clinic management SaaS for a multi-branch aesthetic clinic. Sales processing, package management, inventory tracking, customer CRM, financial reporting, and role-based access control.</p><div class="card-tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Vercel</span></div></div></div>
-    <div class="deck-card" id="card-1"><img src="assets/ai-agent-preview.png" alt="AI Video Agent Pipeline" class="card-img" loading="lazy"><div class="card-body"><div class="card-head"><div class="card-title">AI Video Agent</div><span class="badge badge-active">Active</span></div><p class="card-desc">Multi-agent AI system that autonomously creates and publishes YouTube Shorts. One command triggers the full pipeline: topic → script → images → voiceover → video → upload.</p><div class="card-tags"><span class="tag">Python</span><span class="tag">Claude API</span><span class="tag">DALL-E 3</span><span class="tag">OpenAI TTS</span><span class="tag">YouTube API</span></div></div></div>
-    <div class="deck-card" id="card-2"><img src="n8n_screenshot.png" alt="n8n Pipeline" class="card-img" loading="lazy"><div class="card-body"><div class="card-head"><div class="card-title">n8n AI Video Pipeline</div><span class="badge badge-active">Active</span></div><p class="card-desc">No-code multi-channel YouTube Shorts automation. Scheduled triggers, AI script generation, audio synthesis, video rendering, and routed uploads across channels.</p><div class="card-tags"><span class="tag">n8n</span><span class="tag">OpenAI GPT-4o</span><span class="tag">Creatomate</span><span class="tag">YouTube API</span><span class="tag">No-Code</span></div></div></div>
+  <div class="project-list">
+    <div class="project-card reveal">
+      <div class="card-img-wrap"><img src="assets/clinic-pos-preview.png" alt="Clinic POS Inventory System" class="card-img" loading="lazy"></div>
+      <div class="card-body">
+        <div class="card-title">Clinic POS Inventory System</div>
+        <p class="card-desc">Cloud-based POS and clinic management SaaS for a multi-branch aesthetic clinic. Handles sales processing, package management, inventory tracking, customer CRM, financial reporting, and role-based access control across branches.</p>
+        <div class="card-tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Vercel</span></div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="card-img-wrap"><img src="assets/ai-agent-preview.png" alt="AI Video Agent" class="card-img" loading="lazy"></div>
+      <div class="card-body">
+        <div class="card-title">AI Video Agent</div>
+        <p class="card-desc">Multi-agent AI system that autonomously creates and publishes YouTube Shorts. One command triggers the full pipeline: topic selection → script generation → image creation → voiceover → video rendering → upload.</p>
+        <div class="card-tags"><span class="tag">Python</span><span class="tag">Claude API</span><span class="tag">DALL-E 3</span><span class="tag">OpenAI TTS</span><span class="tag">YouTube API</span></div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="card-img-wrap"><img src="n8n_screenshot.png" alt="n8n AI Video Pipeline" class="card-img" loading="lazy"></div>
+      <div class="card-body">
+        <div class="card-title">n8n AI Video Pipeline</div>
+        <p class="card-desc">No-code multi-channel YouTube Shorts automation. Scheduled triggers pull topics, AI generates scripts, audio is synthesized, Creatomate renders video, and the system routes uploads to the correct channel.</p>
+        <div class="card-tags"><span class="tag">n8n</span><span class="tag">OpenAI GPT-4o</span><span class="tag">Creatomate</span><span class="tag">YouTube API</span><span class="tag">No-Code</span></div>
+      </div>
+    </div>
   </div>
-  <div class="deck-nav" id="deckNav"><button class="deck-dot active" data-idx="0" onclick="rotateDeck(0)"></button><button class="deck-dot" data-idx="1" onclick="rotateDeck(1)"></button><button class="deck-dot" data-idx="2" onclick="rotateDeck(2)"></button></div>
   <div class="more-projects">
     <div class="mini-card reveal"><div class="card-title">Auto Uploader</div><p class="card-desc">Standalone upload pipeline for pre-generated videos. Drop files, AI generates titles and descriptions, auto-uploads and archives. Watch mode for continuous processing.</p><div class="card-tags"><span class="tag">Python</span><span class="tag">GPT-4o</span><span class="tag">YouTube API</span><span class="tag">Telegram</span></div></div>
-    <div class="mini-card reveal"><div class="card-title">Custom PC Builds & Home Lab</div><p class="card-desc">Custom desktops from scratch — component selection, hardware install, BIOS, Windows setup, driver updates, post-build testing. Personal lab for automation and AI tools.</p><div class="card-tags"><span class="tag">Hardware</span><span class="tag">Windows</span><span class="tag">Networking</span></div></div>
+    <div class="mini-card reveal"><div class="card-title">Custom PC Builds & Home Lab</div><p class="card-desc">Custom desktops from scratch — component selection, hardware install, BIOS, Windows setup, driver updates, post-build testing.</p><div class="card-tags"><span class="tag">Hardware</span><span class="tag">Windows</span><span class="tag">Networking</span></div></div>
   </div>
+</section>
+<hr class="divider">
+
+<section class="section" id="about">
+  <div class="section-label reveal">About</div>
+  <div class="section-title reveal">The short version.</div>
+  <p class="section-desc reveal" style="max-width:800px">I've spent the last five years in <strong style="color:var(--text)">enterprise IT support</strong> — service desks, identity & access management, endpoint operations, and remote diagnostics. But I've always been drawn to <strong style="color:var(--text)">building things</strong>, not just fixing them. That led me to ship a cloud-based clinic SaaS and architect multi-agent AI automation systems — both built alongside full-time support work.</p>
 </section>
 <hr class="divider">
 
@@ -445,13 +442,7 @@ var menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('
 window.toggleMobile=function(){menuBtn.classList.toggle('open');overlay.classList.toggle('open');document.body.style.overflow=overlay.classList.contains('open')?'hidden':''};
 window.closeMobile=function(){menuBtn.classList.remove('open');overlay.classList.remove('open');document.body.style.overflow=''};
 
-/* 3. Card deck */
-var cards=document.querySelectorAll('.deck-card'),dots=document.querySelectorAll('.deck-dot'),ci=0;
-var pos=['is-left','is-center','is-right'];
-function layout(){cards.forEach(function(c,i){c.classList.remove('is-left','is-center','is-right');c.classList.add(pos[(i-ci+3)%3])});dots.forEach(function(d,i){d.classList.toggle('active',i===ci)})}
-window.rotateDeck=function(idx){ci=idx;layout()};
-cards.forEach(function(c){c.addEventListener('click',function(){if(!this.classList.contains('is-center')){ci=parseInt(this.id.split('-')[1]);layout()}})});
-layout();
+/* 3. (Card deck removed — using stacked cards now) */
 
 /* 4. Typing */
 var roles=['Systems Engineer','AI Automation Architect','SaaS Product Builder','Cloud & Endpoint Operations'];
