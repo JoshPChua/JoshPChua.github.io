@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://joshpchua.github.io/sitemap.xml
